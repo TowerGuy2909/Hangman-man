@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <!--
-        This is the Hangman game. The goal of the player is to guess letters
-        until you ether guess the hidden word or run out of guesses. The theme 
-        will be mario bros.
-
-        There would be a big header at the top,
-            "Mario Hangman"
-         Sub header
-            "press any key to get started",
-        Different components of the game
-            Wins - the amount of times you guess the word correctly in time.
-            The Current Word - it would be just the "-------" indicating the hidden word.
-                New random word mario themed picked every game from a array.
-                Every time you get a correct guessed letter with a key up it replaces the 
-                appropriate dash spot on the screen. 
-                Once you guess all of them you win!
-            Letters already guessed - the letters you already choosen.
-                Display the list for user to see.
-                Can't repeatly hit the same letter.
-                Must be a lette.
-            Number of guesses remaining.
-                You start with 10 guesses, deincrement every incorrect letter.
-                Run out of guesses you lose, starts a new game, picks new word.
-            Sound or music - mario bros game sound effects for doing things,
-                a coin noise for each successful guess.
-                A super mario bros 1 board finish song with win,
-                    potentialy fire works too.
-                
-    
-    -->
-
+  
 <body>
+<h1> Mario Hangman</h1>
 
+<h3>Wins: </h3><div id="wins"></div>
+<h3>Losses</h3><div id="losses"></div>
+<h3>Guesses Left</h3><div id="guessesLeft"></div>
 
+<h3>Guess the word</h3>
+<div id=""></div>
+<h3>Guesses Remaining</h3>
 
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script  src="assets/javascript/game.js"></script>
 
 </body>
 </html>
