@@ -13,7 +13,8 @@
 	// guessesLeft - the number of guess you have until you lose.
 	// guessesSoFar - guesses made so far starts as an empty array and where wrong guesses are pushed,
 	// The Current Word - it would be just the "-------" indicating the hidden word.
-		// New random word mario themed picked every game from a array.
+		// New random word mario themed picked every game from a array wordList.
+		// takes the mysteryWord chosen and splits it in to an array of mysteryLetters.
 		// Every time you get a correct guessed letter with a key up it replaces the 
 		// appropriate dash spot on the screen. 
 		// Once you guess all of them you win!
@@ -42,13 +43,25 @@ var guessesLeft = 10;
 var guessesSoFar = [];
 // the list of words that will be randomly picked to guess.
 var wordList = ["Mario", "Luigi", "Peach", "Toad", "coin", "brick",];
-
+// prints out total wins in index.html
 document.getElementById("wins").innerHTML = wins;
+// prints out total losses in index.html
 document.getElementById("losses").innerHTML = losses;
-document.getElementById("guessesLeft").innerHTML = guesses;
-
+// prints out guesses left in index.html
+document.getElementById("guessesLeft").innerHTML = guessesLeft;
+// random chosen word from the word list
 var mysteryWord = wordList [Math.floor(Math.random()* wordList.length)];
-
+// takes the mysteryWord chosen and splits it in to an array of mysteryLetters
 var mysteryLetters = mysteryWord.split("");
-
-document.getElementById("groceryList").innerHTML = mysteryLetters;
+// take every letter in the mysteryLetters array and replace them with dashes.
+for (var i = 0; i < mysteryLetters.length; i++){
+	var dashes = [];
+	// mysteryLetters[i] = "-";
+	dashes.push(mysteryLetters);
+	
+	
+}
+console.log(dashes.join(''));
+document.getElementById("mysteryLetters").innerHTML = dashes;
+// prints out to the index.html the mysteryLetters
+// document.getElementById("mysteryLetters").innerHTML = mysteryLetters;
