@@ -65,3 +65,67 @@ console.log(dashes.join(''));
 document.getElementById("mysteryLetters").innerHTML = dashes;
 // prints out to the index.html the mysteryLetters
 // document.getElementById("mysteryLetters").innerHTML = mysteryLetters;
+// type a letter for a guess,
+function myKeyPress(e){
+    var keynum;
+    if(window.event) { // IE                    
+      keynum = e.keyCode;
+    } else if (e.which){ // Netscape/Firefox/Opera                   
+      keynum = e.which;
+    }
+    // if its not in the array "Not a letter, guess again"
+    if (letter.includes(String.fromCharCode(keynum)) === false){
+        console.log("Not a letter, guess again");
+        alert("Not a letter, guess again");
+    // if you've already guessed the letter "already guessed, try again"   
+    } else if (guessesSoFar.includes(String.fromCharCode(keynum)) === true) {    
+        console.log("already guessed, try again")
+        alert("already guessed, try again");
+    // if its right,    
+    } else if (randomLetter === String.fromCharCode(keynum)){
+        // you win!
+        alert("You Win!");
+        console.log("You Win!")
+        // increment wins,
+        wins = wins + 1;
+        console.log("Your wins: " + wins);
+        // prints out win on index.html
+        document.getElementById("wins").innerHTML = wins;
+        // game restarts, picks new random letter,
+        randomLetter = letter[Math.floor(Math.random()* letter.length)];
+        console.log(randomLetter);
+        // clears guesses made array,
+        guessesSoFar = [];
+        // changes guesses left to 10,
+        guessesLeft = 10;
+    } else {
+        // if its wrong,
+        alert("wrong letter");
+        // deincrement the guesses left,
+        guessesLeft = guessesLeft - 1;
+        console.log("Your guesses left: " + guessesLeft);
+        // prints out guessesLeft on index.html
+        document.getElementById("guessesLeft").innerHTML = guessesLeft;
+        // else if guess left equals 0,
+        if (guessesLeft === 0){
+            // you lose,
+            loses = loses + 1;
+            console.log("You've no guesses left. You lose");
+            // prints out loses on index.html
+            document.getElementById("loses").innerHTML = loses;
+            // game restarts, picks new random letter,
+            randomLetter = letter[Math.floor(Math.random()* letter.length)];
+            console.log(randomLetter);
+            // clears guesses made array,
+            guessesSoFar = [];
+            // changes guesses left to 10,
+            guessesLeft = 10;
+        } else {
+            // push wrong letter to guesses made array,
+            guessesSoFar.push(String.fromCharCode(keynum));
+            console.log(guessesSoFar);
+            // prints out guessesSoFar on index.html
+            document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
+        }
+    }
+}
