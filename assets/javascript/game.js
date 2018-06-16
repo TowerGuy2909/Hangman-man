@@ -56,12 +56,12 @@ var mysteryLetters = mysteryWord.split("");
 // take every letter in the mysteryLetters array and replace them with dashes.
 for (var i = 0; i < mysteryLetters.length; i++){
 	var dashes = [];
-	// mysteryLetters[i] = "-";
+	mysteryLetters[i] = "-";
 	dashes.push(mysteryLetters);
-	
-	
+	dashes = dashes.join("");
+
 }
-console.log(dashes.join(''));
+console.log(dashes)
 document.getElementById("mysteryLetters").innerHTML = dashes;
 // prints out to the index.html the mysteryLetters
 // document.getElementById("mysteryLetters").innerHTML = mysteryLetters;
